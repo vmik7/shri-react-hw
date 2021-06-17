@@ -1,0 +1,40 @@
+.footer {
+    background: #F0F2F3;
+    padding: 8px 0;
+
+    font-size: 13px;
+    line-height: 16px;
+
+    letter-spacing: 0.06px;
+
+    color: #7F8285;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: 12px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #7F8285;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #E00000;
+        }
+    }
+
+    &__copyright {
+        
+    }
+}
