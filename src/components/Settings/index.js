@@ -1,13 +1,17 @@
 import React from 'react';
- 
-import Header from './../Header'
+
+import './style.scss';
+
+import Header from './../Header';
 
 function Settings() {
     return (
         <>
             <Header title="School CI server" buttons={[]}/>
             <div className="settings">
-                This is a Settings component
+                <div className="container settings__container">
+                    This is a Settings component
+                </div>
             </div>
         </>
     );

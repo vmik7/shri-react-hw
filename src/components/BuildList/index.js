@@ -1,6 +1,8 @@
 import React from 'react';
- 
-import Header from '../Header'
+
+import './style.scss';
+
+import Header from '../Header';
 
 function BuildList() {
     return (
@@ -10,7 +12,9 @@ function BuildList() {
                 { text: 'Settings' }
             ]}/>
             <div className="build-list">
-                This is a BuildList component
+                <div className="container build-list__container">
+                    This is a BuildList component
+                </div>
             </div>
         </>
     );

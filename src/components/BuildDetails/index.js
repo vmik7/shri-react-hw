@@ -1,6 +1,8 @@
 import React from 'react';
- 
-import Header from './../Header'
+
+import './style.scss';
+
+import Header from './../Header';
 
 function BuildDetails(props) {
     return (
@@ -10,7 +12,9 @@ function BuildDetails(props) {
                 { text: 'Settings' }
             ]}/>
             <div className="build-details">
-                This is a BuildDetails component ({ parseInt(props.match.params.number, 10) })
+                <div className="container build-details__container">
+                    This is a BuildDetails component ({ parseInt(props.match.params.number, 10) })
+                </div>
             </div>
         </>
     );
