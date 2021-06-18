@@ -3,8 +3,23 @@ import React from 'react';
 import './style.scss';
 
 import Header from './../Header';
+import BuildItem from '../BuildItem';
 
 function BuildDetails(props) {
+
+    let buildData = {
+        id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+        configurationId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+        buildNumber: 1368,
+        commitMessage: 'add documentation for postgres scaler',
+        commitHash: '9c9f0b9',
+        branchName: 'master',
+        authorName: 'Philip Kirkorov',
+        status: 'Success',
+        start: '2021-06-18T08:35:41.117Z',
+        duration: 80,
+    };
+
     return (
         <>
             <Header title="philip1967/my-awesome-repo" buttons={[
@@ -24,7 +39,8 @@ function BuildDetails(props) {
             ]}/>
             <div className="build-details">
                 <div className="container build-details__container">
-                    This is a BuildDetails component ({ parseInt(props.match.params.number, 10) })
+                    {/* This is a BuildDetails component ({ parseInt(props.match.params.number, 10) }) */}
+                    <BuildItem {...buildData} isDetailed={true}/>
                 </div>
             </div>
         </>

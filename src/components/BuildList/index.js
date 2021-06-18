@@ -18,7 +18,7 @@ function BuildList() {
             branchName: 'master',
             authorName: 'Philip Kirkorov',
             status: 'Success',
-            start: '2021-06-18T08:35:41.117Z',
+            start: '2021-01-18T05:00:12.000Z',
             duration: 80,
         },
         {
@@ -40,7 +40,7 @@ function BuildList() {
             branchName: 'master',
             authorName: 'Philip Kirkorov',
             status: 'InProgress',
-            start: '2021-06-18T08:35:41.117Z',
+            start: '2021-02-18T08:35:41.117Z',
         },
         {
             id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
@@ -63,8 +63,8 @@ function BuildList() {
             branchName: 'master',
             authorName: 'Philip Kirkorov',
             status: 'Canceled',
-            start: '2021-06-18T08:35:41.117Z',
-        },
+            start: '2021-09-18T08:35:41.117Z',
+        }
     ]
 
     return (

@@ -2,6 +2,10 @@ import React from 'react';
 
 import './style.scss';
 
+import iconSuccess from './icons/success.svg';
+import iconPending from './icons/pending.svg';
+import iconFail from './icons/fail.svg';
+
 function BuildItem({
     buildNumber,
     commitMessage,
@@ -11,29 +15,65 @@ function BuildItem({
     status,
     start,
     duration,
-    classList,
+    classList = [],
+    isDetailed = false,
  }) {
-
-    const startDate = new Date(start);
     const monthNames = [ 'янв', 'фев', 'мар', 'апр', 'мая', 'июня', 'июля', 'авг', 'сент', 'окт', 'нояб', 'дек' ];
     
-    let hours = startDate.getHours();
-    if (hours < 10) {
-        hours = '0' + hours;
-    }
-    
-    let minutes = startDate.getHours();
-    if (minutes < 10) {
-        minutes = '0' + minutes;
+    function getTimeString(start) {
+        const startDate = new Date(start);
+
+        let hours = startDate.getHours();
+        if (hours < 10) {
+            hours = '0' + hours;
+        }
+        
+        let minutes = startDate.getMinutes();
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+
+        return `${startDate.getDate()} ${monthNames[startDate.getMonth()]}, ${hours}:${minutes}`
     }
 
-    let durationHours = Math.floor(duration / 60);
-    let durationMinutes = duration % 60;
+    function getDurationString(duration) {
+        let durationHours = Math.floor(duration / 60);
+        let durationMinutes = duration % 60;
 
-    let statusMod = 'build-item_status_' + status.toLowerCase();
+        return `${durationHours ? durationHours + ' ч ' : ''}${durationMinutes} мин`
+    }
+
+    let statusMod = 'build-item_status_';
+    let icon;
+    switch (status) {
+        case 'Success':
+            statusMod += 'success';
+            icon = iconSuccess;
+            break;
+        case 'Waiting':
+        case 'InProgress':
+            statusMod += 'pending';
+            icon = iconPending;
+            break;
+        case 'Fail':
+        case 'Canceled':
+            statusMod += 'fail';
+            icon = iconFail;
+            break;
+        default:
+            break;
+    }
+
+    let classArray = ['build-item', statusMod];
+    if (isDetailed) {
+        classArray.push('build-item_deatiled')
+    }
 
     return (
-        <article className={['build-item', statusMod, ...classList].join(' ')}>
+        <article className={[...classArray, ...classList].join(' ')}>
+            <div className="build-item__icon">
+                <img src={icon}></img>
+            </div>
             <div className="build-item__main">
                 <header className="build-item__header">
                     <div className="build-item__number">{ buildNumber }</div>
@@ -48,12 +88,11 @@ function BuildItem({
                 </div>
             </div>
             <footer className="build-item__footer">
-                <div className="build-item__time">{ `${startDate.getDate()} ${monthNames[startDate.getMonth()]}, ${hours}:${minutes}` }</div>
-                <div className="build-item__duration">{`${durationHours ? durationHours + ' ч ' : ''}${durationMinutes} мин`}</div>
+                { start && <div className="build-item__time">{ getTimeString(start) }</div> }
+                { duration && <div className="build-item__duration">{ getDurationString(duration) }</div> }
             </footer>
         </article>
     );
 }
-
 
 export default BuildItem;
