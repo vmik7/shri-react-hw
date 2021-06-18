@@ -16,6 +16,10 @@
         margin-right: auto;
     }
 
+    &_faded &__title {
+        color: #7F8285;
+    }
+
     &__control {
         margin-left: 8px;
     }
