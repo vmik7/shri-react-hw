@@ -1,5 +1,11 @@
 .build-list {
+    padding-top: 8px;
+    
     &__container {
         
+    }
+
+    &__item {
+        margin-bottom: 8px;
     }
 }

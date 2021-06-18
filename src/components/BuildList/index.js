@@ -3,9 +3,70 @@ import React from 'react';
 import './style.scss';
 
 import Header from '../Header';
+import BuildItem from '../BuildItem';
 import Button from '../generic/Button';
 
 function BuildList() {
+
+    let builds = [
+        {
+            id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            configurationId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            buildNumber: 1368,
+            commitMessage: 'add documentation for postgres scaler',
+            commitHash: '9c9f0b9',
+            branchName: 'master',
+            authorName: 'Philip Kirkorov',
+            status: 'Success',
+            start: '2021-06-18T08:35:41.117Z',
+            duration: 80,
+        },
+        {
+            id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            configurationId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            buildNumber: 1367,
+            commitMessage: 'Super cool UI kit for making websites that look like games of old.',
+            commitHash: '952e5567',
+            branchName: 'super-cool-ui-kit',
+            authorName: 'Vadim Makeev',
+            status: 'Waiting',
+        },
+        {
+            id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            configurationId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            buildNumber: 1368,
+            commitMessage: 'add documentation for postgres scaler',
+            commitHash: '9c9f0b9',
+            branchName: 'master',
+            authorName: 'Philip Kirkorov',
+            status: 'InProgress',
+            start: '2021-06-18T08:35:41.117Z',
+        },
+        {
+            id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            configurationId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            buildNumber: 1368,
+            commitMessage: 'add documentation for postgres scaler',
+            commitHash: '9c9f0b9',
+            branchName: 'master',
+            authorName: 'Philip Kirkorov',
+            status: 'Fail',
+            start: '2021-06-18T08:35:41.117Z',
+            duration: 80,
+        },
+        {
+            id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            configurationId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
+            buildNumber: 1368,
+            commitMessage: 'add documentation for postgres scaler',
+            commitHash: '9c9f0b9',
+            branchName: 'master',
+            authorName: 'Philip Kirkorov',
+            status: 'Canceled',
+            start: '2021-06-18T08:35:41.117Z',
+        },
+    ]
+
     return (
         <>
             <Header title="philip1967/my-awesome-repo" buttons={[
@@ -25,56 +86,11 @@ function BuildList() {
             ]}/>
             <div className="build-list">
                 <div className="container build-list__container">
-                    This is a BuildList component
-                    <br/>
+                    { builds.map(build => <BuildItem {...build} classList={['build-list__item']}/>) }
                     <Button
-                        text="Run Build"
-                        hasIcon={true}
-                        svg={<svg width="9" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.289 4.193L1.414.128C.855-.202 0 .118 0 .935v8.127a.937.937 0 001.414.806l6.875-4.062a.936.936 0 000-1.613z" fill="#111"/></svg>}
+                        text="Show more"
                         isSmall={true}
                     />
-                    <Button
-                        text="Run Build"
-                        hasIcon={true}
-                        iconOnly={true}
-                        svg={<svg width="9" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.289 4.193L1.414.128C.855-.202 0 .118 0 .935v8.127a.937.937 0 001.414.806l6.875-4.062a.936.936 0 000-1.613z" fill="#111"/></svg>}
-                        isSmall={true}
-                    />
-                    <br/>
-                    <Button
-                        text="Run Build"
-                        hasIcon={true}
-                        svg={<svg width="9" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.289 4.193L1.414.128C.855-.202 0 .118 0 .935v8.127a.937.937 0 001.414.806l6.875-4.062a.936.936 0 000-1.613z" fill="#111"/></svg>}
-                        isSmall={true}
-                        isDisabled={true}
-                    />
-                    <Button
-                        text="Run Build"
-                        hasIcon={true}
-                        iconOnly={true}
-                        svg={<svg width="9" height="10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.289 4.193L1.414.128C.855-.202 0 .118 0 .935v8.127a.937.937 0 001.414.806l6.875-4.062a.936.936 0 000-1.613z" fill="#111"/></svg>}
-                        isSmall={true}
-                        isDisabled={true}
-                    />
-                    <br/>
-                    <Button
-                        text="Run Build"
-                        isPrimary={true}
-                    />
-                    <Button
-                        text="Run Build"
-                    />
-                    <br/>
-                    <Button
-                        text="Run Build"
-                        isPrimary={true}
-                        isDisabled={true}
-                    />
-                    <Button
-                        text="Run Build"
-                        isDisabled={true}
-                    />
-                    <br/>
                 </div>
             </div>
         </>
