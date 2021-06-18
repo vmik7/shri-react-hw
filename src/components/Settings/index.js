@@ -46,7 +46,7 @@ function Settings() {
                             classList={[ 'settings__input' ]}
                             name="branch"
                         />
-                        <div className="settings__input">
+                        <div className="settings__input_inline">
                             Synchronize every
                             <TextField 
                                 value="10"
