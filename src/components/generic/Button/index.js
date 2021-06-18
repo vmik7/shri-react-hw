@@ -11,6 +11,7 @@ function Button({
     isSmall = false,
     isDisabled = false,
     classList = [],
+    onClick = () => {}
 }) {
 
     let classArray = ['button', ...classList];
@@ -29,7 +30,7 @@ function Button({
 
 
     return (
-        <button className={ classArray.join(' ') } disabled={isDisabled}>
+        <button className={ classArray.join(' ') } onClick={onClick} disabled={isDisabled}>
             { hasIcon && <span className="button__icon">{ svg }</span>}
             { !iconOnly && <span className="button__text">{ text }</span>}
         </button>
