@@ -73,7 +73,6 @@ function BuildList() {
                 { builds.map(build => <BuildItem {...build} classList={['build-list__item']}/>) }
                 <Button
                     text="Show more"
-                    isSmall={true}
                 />
             </div>
         </div>

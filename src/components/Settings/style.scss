@@ -1,12 +1,18 @@
+@import '../../variables.scss';
+
 .settings {
     &__controls {
         display: flex;
+        column-gap: 8px;
         margin-top: 24px;
+
+        @media screen and (max-width: $md4 + px) {
+            flex-direction: column;
+            row-gap: 12px;
+        }
     }
     &__button {
-        &:not(:last-child) {
-            margin-right: 8px;
-        }
+        
     }
     &__header {
     }

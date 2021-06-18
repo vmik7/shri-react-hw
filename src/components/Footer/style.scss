@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .footer {
     background: #F0F2F3;
     padding: 8px 0;
@@ -12,6 +14,11 @@
     &__container {
         display: flex;
         justify-content: space-between;
+
+        @media screen and (max-width: $md4 + px) {
+            flex-direction: column;
+            row-gap: 8px;
+        }
     }
 
     &__list {
