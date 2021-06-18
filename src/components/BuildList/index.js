@@ -1,10 +1,11 @@
 import React from 'react';
 
-import './style.scss';
-
 import Header from '../Header';
 import BuildItem from '../BuildItem';
 import Button from '../generic/Button';
+import NewBuild from '../NewBuild';
+
+import './style.scss';
 
 function BuildList() {
 
@@ -93,6 +94,7 @@ function BuildList() {
                     />
                 </div>
             </div>
+            {/* <NewBuild /> */}
         </>
     );
 }

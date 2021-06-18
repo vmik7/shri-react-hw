@@ -10,7 +10,7 @@ function TextField({
     isRequired = false,
     isInline = false,
     name = '',
-    classList,
+    classList = [],
 }) {
     const WrapperTag = (isInline ? 'span' : 'div');
 
