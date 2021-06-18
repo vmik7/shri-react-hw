@@ -3,6 +3,7 @@ import React from 'react';
 import './style.scss';
 
 import Header from './../Header';
+import Button from '../generic/Button';
 
 function BuildDetails(props) {
     return (
