@@ -1,15 +1,10 @@
 import React from 'react';
- 
+
 import './style.scss';
 
 import Button from '../generic/Button';
 
-function Header({ 
-    title,
-    isFaded = false,
-    buttons = [],
-}) {
-
+function Header({ title, isFaded = false, buttons = [] }) {
     let classArray = ['header'];
     if (isFaded) {
         classArray.push('header_faded');
@@ -18,8 +13,14 @@ function Header({
     return (
         <header className={classArray.join(' ')}>
             <div className="container header__container">
-                <h1 className="header__title">{ title }</h1>
-                { buttons.map((buttonProps, index) => <Button {...buttonProps} key={index} classList={['header__control']}/>) }
+                <h1 className="header__title">{title}</h1>
+                {buttons.map((buttonProps, index) => (
+                    <Button
+                        {...buttonProps}
+                        key={index}
+                        classList={['header__control']}
+                    />
+                ))}
             </div>
         </header>
     );

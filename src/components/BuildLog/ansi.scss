@@ -30,7 +30,7 @@
         @include color(rgb(0, 187, 187));
     }
     &-white {
-        @include color(rgb(255,255,255));
+        @include color(rgb(255, 255, 255));
     }
     &-bold {
         font-weight: bold;

@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .footer {
-    background: #F0F2F3;
+    background: #f0f2f3;
     padding: 8px 0;
 
     font-size: 13px;
@@ -9,7 +9,7 @@
 
     letter-spacing: 0.06px;
 
-    color: #7F8285;
+    color: #7f8285;
 
     &__container {
         display: flex;
@@ -33,15 +33,14 @@
 
     &__link {
         text-decoration: none;
-        color: #7F8285;
+        color: #7f8285;
         transition: color 0.3s ease;
 
         &:hover {
-            color: #E00000;
+            color: #e00000;
         }
     }
 
     &__copyright {
-        
     }
 }

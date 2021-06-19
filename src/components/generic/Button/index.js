@@ -14,7 +14,6 @@ function Button({
     onClick,
     ...props
 }) {
-
     let classArray = ['button', ...classList];
     if (isPrimary) {
         classArray.push('button_primary');
@@ -29,11 +28,15 @@ function Button({
         classArray.push('button_icon-only');
     }
 
-
     return (
-        <button className={ classArray.join(' ') } onClick={onClick} disabled={isDisabled} {...props} >
-            { hasIcon && <span className="button__icon">{ svg }</span>}
-            { !iconOnly && <span className="button__text">{ text }</span>}
+        <button
+            className={classArray.join(' ')}
+            onClick={onClick}
+            disabled={isDisabled}
+            {...props}
+        >
+            {hasIcon && <span className="button__icon">{svg}</span>}
+            {!iconOnly && <span className="button__text">{text}</span>}
         </button>
     );
 }

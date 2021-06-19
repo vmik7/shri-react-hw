@@ -17,9 +17,22 @@ function BuildItem({
     duration,
     classList = [],
     isDetailed = false,
- }) {
-    const monthNames = [ 'янв', 'фев', 'мар', 'апр', 'мая', 'июня', 'июля', 'авг', 'сент', 'окт', 'нояб', 'дек' ];
-    
+}) {
+    const monthNames = [
+        'янв',
+        'фев',
+        'мар',
+        'апр',
+        'мая',
+        'июня',
+        'июля',
+        'авг',
+        'сент',
+        'окт',
+        'нояб',
+        'дек',
+    ];
+
     function getTimeString(start) {
         const startDate = new Date(start);
 
@@ -27,20 +40,24 @@ function BuildItem({
         if (hours < 10) {
             hours = '0' + hours;
         }
-        
+
         let minutes = startDate.getMinutes();
         if (minutes < 10) {
             minutes = '0' + minutes;
         }
 
-        return `${startDate.getDate()} ${monthNames[startDate.getMonth()]}, ${hours}:${minutes}`
+        return `${startDate.getDate()} ${
+            monthNames[startDate.getMonth()]
+        }, ${hours}:${minutes}`;
     }
 
     function getDurationString(duration) {
         let durationHours = Math.floor(duration / 60);
         let durationMinutes = duration % 60;
 
-        return `${durationHours ? durationHours + ' ч ' : ''}${durationMinutes} мин`
+        return `${
+            durationHours ? durationHours + ' ч ' : ''
+        }${durationMinutes} мин`;
     }
 
     let statusMod = 'build-item_status_';
@@ -66,7 +83,7 @@ function BuildItem({
 
     let classArray = ['build-item', statusMod];
     if (isDetailed) {
-        classArray.push('build-item_deatiled')
+        classArray.push('build-item_deatiled');
     }
 
     return (
@@ -76,20 +93,28 @@ function BuildItem({
             </div>
             <div className="build-item__main">
                 <header className="build-item__header">
-                    <div className="build-item__number">{ buildNumber }</div>
-                    <div className="build-item__message">{ commitMessage }</div>
+                    <div className="build-item__number">{buildNumber}</div>
+                    <div className="build-item__message">{commitMessage}</div>
                 </header>
                 <div className="build-item__details">
                     <div className="build-item__commit">
-                        <div className="build-item__branch">{ branchName }</div>
-                        <div className="build-item__hash">{ commitHash }</div>
+                        <div className="build-item__branch">{branchName}</div>
+                        <div className="build-item__hash">{commitHash}</div>
                     </div>
-                    <div className="build-item__author">{ authorName }</div>
+                    <div className="build-item__author">{authorName}</div>
                 </div>
             </div>
             <footer className="build-item__footer">
-                { start && <div className="build-item__time">{ getTimeString(start) }</div> }
-                { duration && <div className="build-item__duration">{ getDurationString(duration) }</div> }
+                {start && (
+                    <div className="build-item__time">
+                        {getTimeString(start)}
+                    </div>
+                )}
+                {duration && (
+                    <div className="build-item__duration">
+                        {getDurationString(duration)}
+                    </div>
+                )}
             </footer>
         </article>
     );

@@ -2,7 +2,8 @@
 
 .build-item {
     padding: 12px 24px 12px 56px;
-    box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 1px 1px rgba(67, 68, 69, 0.3);
+    box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3),
+        0px 1px 1px rgba(67, 68, 69, 0.3);
     border-radius: 6px;
 
     display: flex;
@@ -18,15 +19,14 @@
         flex-direction: column;
     }
 
-
-
     position: relative;
 
     transition: box-shadow 0.3s ease;
     &:hover,
     &:focus-visible {
-        box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 2px 8px rgba(67, 68, 69, 0.3);
-        cursor: pointer
+        box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3),
+            0px 2px 8px rgba(67, 68, 69, 0.3);
+        cursor: pointer;
     }
 
     &__icon {
@@ -82,13 +82,13 @@
         }
     }
     &_status_success &__number {
-        color: #00B341;
+        color: #00b341;
     }
     &_status_pending &__number {
-        color: #FF9A00;
+        color: #ff9a00;
     }
     &_status_fail &__number {
-        color: #FF3333;
+        color: #ff3333;
     }
     &__details {
         display: flex;
@@ -114,7 +114,7 @@
         line-height: 16px;
         letter-spacing: 0.06px;
         color: #000;
-    }   
+    }
     &__hash {
         font-size: 13px;
         line-height: 16px;
@@ -145,7 +145,7 @@
         @media screen and (max-width: $md3 + px) {
             flex-direction: row;
             column-gap: 10px;
-            border-top: 1px solid #F0F2F3;
+            border-top: 1px solid #f0f2f3;
             margin-top: 8px;
             padding-top: 8px;
 
@@ -157,7 +157,7 @@
     &_deatiled &__footer {
         flex-direction: row;
         column-gap: 10px;
-        border-top: 1px solid #F0F2F3;
+        border-top: 1px solid #f0f2f3;
         margin-top: 8px;
         padding-top: 8px;
 
@@ -190,6 +190,4 @@
             margin-right: 6px;
         }
     }
-
-
 }

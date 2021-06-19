@@ -13,19 +13,21 @@ function Modal({
 
     return (
         <div className={['modal', ...classList].join(' ')}>
-            <div ref={wrapperEl} className="modal__wrapper" onClick={
-                (e) => {
+            <div
+                ref={wrapperEl}
+                className="modal__wrapper"
+                onClick={(e) => {
                     if (e.target === wrapperEl.current) {
                         onWrapperClick();
                     }
-                }
-            }>
+                }}
+            >
                 <div className="modal__window">
-                    {title && <p className="modal__title">{ title }</p>}
-                    {subtitle && <p className="modal__subtitle">{ subtitle} </p>}
+                    {title && <p className="modal__title">{title}</p>}
+                    {subtitle && <p className="modal__subtitle">{subtitle} </p>}
                     {content}
                 </div>
-            </div>            
+            </div>
         </div>
     );
 }
