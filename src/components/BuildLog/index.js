@@ -1,6 +1,8 @@
 import React from 'react';
+import Ansi from 'ansi-to-react';
 
 import './style.scss';
+import './ansi.scss';
 
 function BuildLog({
     logs = '',
@@ -8,7 +10,7 @@ function BuildLog({
 }) {
     return (
         <pre className={['build-log', ...classList].join(' ')}>
-            { logs }
+            <Ansi useClasses>{ logs }</Ansi>
         </pre>
     );
 }
