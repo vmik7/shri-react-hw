@@ -42,6 +42,11 @@
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm lint-staged"
+    }
+  },
   "devDependencies": {
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
