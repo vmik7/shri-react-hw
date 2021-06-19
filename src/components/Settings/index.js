@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 
 import './style.scss';
 
+import Header from '../Header';
 import TextField from './../generic/TextField';
 import Button from './../generic/Button';
 
-function Settings() {
+function Settings({
+    contentClass = []
+}) {
 
     const [repo, setRepo] = useState('');
     const [build, setBuild] = useState('npm ci && npm run build');
     const [branch, setBranch] = useState('master');
     const [period, setPeriod] = useState('');
 
-    return (
-        <div className="settings">
+    return (<>
+        <Header title="School CI server" isFaded={true}/>
+        <div className={['settings', ...contentClass].join(' ')}>
             <div className="container settings__container">
                 <div className="settings__header">
                     <h2 className="settings__title">
@@ -86,7 +90,7 @@ function Settings() {
                 </form>
             </div>
         </div>
-    );
+    </>);
 }
 
 export default Settings;

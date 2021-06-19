@@ -11,7 +11,7 @@ function Button({
     isSmall = false,
     isDisabled = false,
     classList = [],
-    onClick = () => {}
+    onClick,
 }) {
 
     let classArray = ['button', ...classList];
