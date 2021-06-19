@@ -74,6 +74,7 @@ function BuildList({
 }) {
     let history = useHistory();
     const [modalIsOpen, setOpenStatus] = useState(false);
+    const [hash, setHash] = useState('');
 
     return (  
         <>
@@ -109,6 +110,8 @@ function BuildList({
                     onWrapperClick={ () => setOpenStatus(false) }
                     onCancel={ () => setOpenStatus(false) }
                     onSave={ () => setOpenStatus(false) }
+                    onInputChange={ value => setHash(value) }
+                    inputValue={ hash }
                 /> }
             </div>
         </>
