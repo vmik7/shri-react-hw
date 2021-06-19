@@ -75,6 +75,10 @@ function BuildList({ contentClass = [] }) {
     const [modalIsOpen, setOpenStatus] = useState(false);
     const [hash, setHash] = useState('');
 
+    function handleItemClick(number) {
+        history.push(`/build/${number}`)
+    }
+
     return (
         <>
             <Header
@@ -121,6 +125,7 @@ function BuildList({ contentClass = [] }) {
                             {...build}
                             key={build.buildNumber}
                             classList={['build-list__item']}
+                            onClick={handleItemClick.bind(null, build.buildNumber)}
                         />
                     ))}
                     <Button text="Show more" />

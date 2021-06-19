@@ -17,6 +17,7 @@ function BuildItem({
     duration,
     classList = [],
     isDetailed = false,
+    onClick,
 }) {
     const monthNames = [
         'янв',
@@ -87,7 +88,7 @@ function BuildItem({
     }
 
     return (
-        <article className={[...classArray, ...classList].join(' ')}>
+        <article className={[...classArray, ...classList].join(' ')} onClick={onClick}>
             <div className="build-item__icon">
                 <img src={icon} alt="status"></img>
             </div>
