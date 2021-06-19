@@ -72,7 +72,7 @@ function BuildItem({
     return (
         <article className={[...classArray, ...classList].join(' ')}>
             <div className="build-item__icon">
-                <img src={icon}></img>
+                <img src={icon} alt="status"></img>
             </div>
             <div className="build-item__main">
                 <header className="build-item__header">

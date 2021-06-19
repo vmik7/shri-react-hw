@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './style.scss';
 
@@ -6,6 +6,12 @@ import TextField from './../generic/TextField';
 import Button from './../generic/Button';
 
 function Settings() {
+
+    const [repo, setRepo] = useState('');
+    const [build, setBuild] = useState('npm ci && npm run build');
+    const [branch, setBranch] = useState('master');
+    const [period, setPeriod] = useState('');
+
     return (
         <div className="settings">
             <div className="container settings__container">
@@ -17,40 +23,52 @@ function Settings() {
                         Configure repository connection and synchronization settings.
                     </p>
                 </div>
-                <from method="POST">
+                <form method="POST">
                     <TextField 
+                        value={repo}
                         placeholder="user-name/repo-name"
                         isLabeled={true}
                         labelText="GitHub repository"
                         isRequired={true}
                         classList={[ 'settings__input' ]}
                         name="repo"
+                        onChange={ value => setRepo(value) }
                     />
                     <TextField 
-                        value="npm ci && npm run build"
+                        value={build}
                         placeholder="example: npm run build"
                         isLabeled={true}
                         labelText="Build command"
                         isRequired={true}
                         classList={[ 'settings__input' ]}
                         name="build"
+                        onChange={ value => setBuild(value) }
                     />
                     <TextField 
-                        value="master |"
-                        placeholder="master"
+                        value={branch}
+                        placeholder="main"
                         isLabeled={true}
                         labelText="Main branch"
                         classList={[ 'settings__input' ]}
                         name="branch"
+                        onChange={ value => setBranch(value) }
                     />
                     <div className="settings__input_inline">
                         Synchronize every
                         <TextField 
-                            value="10"
-                            placeholder="20"
+                            value={period}
+                            placeholder="10"
                             isInline={true}
                             classList={[]}
                             name="period"
+                            onChange={
+                                value => {
+                                    value = value.trim();
+                                    if (/^[0-9]*$/.test(value)) {
+                                        setPeriod(+value || '');
+                                    }
+                                }
+                            }
                         />
                         minutes
                     </div>
@@ -65,7 +83,7 @@ function Settings() {
                             classList={['settings__button', 'settings__button_action_cancel']}
                         />
                     </div>
-                </from>
+                </form>
             </div>
         </div>
     );

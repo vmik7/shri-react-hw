@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Header from './../Header';
 import BuildItem from '../BuildItem';
 import BuildLog from '../BuildLog';
 
