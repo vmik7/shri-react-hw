@@ -3,15 +3,15 @@ import React from 'react';
 import './style.scss';
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-    text: string,
-    hasIcon?: boolean,
-    iconOnly?: boolean,
-    svg?: React.ReactSVGElement,
-    isPrimary?: boolean,
-    isSmall?: boolean,
-    isDisabled?: boolean,
-    classList?: Array<string>,
-    onClick?: (e: React.MouseEvent) => void,
+    text: string;
+    hasIcon?: boolean;
+    iconOnly?: boolean;
+    svg?: React.ReactSVGElement;
+    isPrimary?: boolean;
+    isSmall?: boolean;
+    isDisabled?: boolean;
+    classList?: Array<string>;
+    onClick?: (e: React.MouseEvent) => void;
 }
 
 export default function Button({
@@ -25,8 +25,7 @@ export default function Button({
     classList = [],
     onClick,
     ...props
-} : ButtonProps) {
-
+}: ButtonProps) {
     let classArray = ['button', ...classList];
     if (isPrimary) {
         classArray.push('button_primary');
