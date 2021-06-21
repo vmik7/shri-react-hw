@@ -11,7 +11,7 @@ import Start from '../Start';
 
 import './style.scss';
 
-function App() {
+export default function App() {
     return (
         <div className="app">
             <Switch>
@@ -52,5 +52,3 @@ function App() {
         </div>
     );
 }
-
-export default App;
