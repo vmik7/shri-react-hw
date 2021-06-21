@@ -3,14 +3,18 @@ import React, { useState } from 'react';
 import './style.scss';
 
 import Header from '../Header';
-import TextField from './../generic/TextField';
-import Button from './../generic/Button';
+import TextField from '../generic/TextField';
+import Button from '../generic/Button';
 
-function Settings({ contentClass = [] }) {
+export interface SettingsProps {
+    contentClass?: Array<string>;
+}
+
+export default function Settings({ contentClass = [] }: SettingsProps) {
     const [repo, setRepo] = useState('');
     const [build, setBuild] = useState('npm ci && npm run build');
     const [branch, setBranch] = useState('master');
-    const [period, setPeriod] = useState('');
+    const [period, setPeriod] = useState(0);
 
     return (
         <>
@@ -57,15 +61,15 @@ function Settings({ contentClass = [] }) {
                         <div className="settings__input_inline">
                             Synchronize every
                             <TextField
-                                value={period}
+                                value={(period || '').toString()}
                                 placeholder="10"
                                 isInline={true}
                                 classList={[]}
                                 name="period"
-                                onChange={(value) => {
+                                onChange={(value: string) => {
                                     value = value.trim();
                                     if (/^[0-9]*$/.test(value)) {
-                                        setPeriod(+value || '');
+                                        setPeriod(+value);
                                     }
                                 }}
                             />
@@ -94,5 +98,3 @@ function Settings({ contentClass = [] }) {
         </>
     );
 }
-
-export default Settings;

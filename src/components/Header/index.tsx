@@ -4,7 +4,19 @@ import './style.scss';
 
 import Button from '../generic/Button';
 
-function Header({ title, isFaded = false, buttons = [] }) {
+import { ButtonProps } from '../generic/Button';
+
+export interface HeaderProps {
+    title: string;
+    isFaded?: boolean;
+    buttons?: Array<ButtonProps>;
+}
+
+export default function Header({
+    title,
+    isFaded = false,
+    buttons = [],
+}: HeaderProps) {
     let classArray = ['header'];
     if (isFaded) {
         classArray.push('header_faded');
@@ -25,5 +37,3 @@ function Header({ title, isFaded = false, buttons = [] }) {
         </header>
     );
 }
-
-export default Header;

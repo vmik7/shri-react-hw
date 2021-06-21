@@ -9,7 +9,14 @@ import BuildLog from '../BuildLog';
 
 import './style.scss';
 
-const buildData = {
+import { BuildItemProps } from '../BuildItem';
+
+interface BuildData extends BuildItemProps {
+    id: string;
+    configurationId: string;
+}
+
+const buildData: BuildData = {
     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
     configurationId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
     buildNumber: 1368,
@@ -37,7 +44,11 @@ const buildLogs = `[2K[1G[1myarn run v1.22.5[22m
     [2K[1GDone in 0.84s.
 `;
 
-function BuildDetails({ contentClass = [] }) {
+export interface BuildDetailsProps {
+    contentClass?: Array<string>;
+}
+
+export default function BuildDetails({ contentClass = [] }: BuildDetailsProps) {
     //{/* This is a BuildDetails component ({ parseInt(props.match.params.number, 10) }) */}
 
     let history = useHistory();
@@ -79,5 +90,3 @@ function BuildDetails({ contentClass = [] }) {
         </>
     );
 }
-
-export default BuildDetails;

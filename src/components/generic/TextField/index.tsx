@@ -2,7 +2,19 @@ import React from 'react';
 
 import './style.scss';
 
-function TextField({
+export interface TextFieldProps {
+    placeholder?: string;
+    value?: string;
+    isLabeled?: boolean;
+    labelText?: string;
+    isRequired?: boolean;
+    isInline?: boolean;
+    name?: string;
+    classList?: Array<string>;
+    onChange(value: string): void;
+}
+
+export default function TextField({
     placeholder = '',
     value = '',
     isLabeled = false,
@@ -12,11 +24,10 @@ function TextField({
     name = '',
     classList = [],
     onChange,
-    validate,
-}) {
+}: TextFieldProps) {
     const WrapperTag = isInline ? 'span' : 'div';
 
-    let inputOptions = {};
+    let inputOptions: any = {};
 
     if (name) {
         inputOptions.name = name;
@@ -67,5 +78,3 @@ function TextField({
         <WrapperTag className={allClasses.join(' ')}>{input}</WrapperTag>
     );
 }
-
-export default TextField;

@@ -9,7 +9,11 @@ import Header from '../Header';
 import './style.scss';
 import iconSettings from './icons/settings.svg';
 
-function Start({ contentClass = [] }) {
+export interface StartProps {
+    contentClass?: Array<string>;
+}
+
+export default function Start({ contentClass = [] }: StartProps) {
     let history = useHistory();
 
     let openSettings = () => {
@@ -55,5 +59,3 @@ function Start({ contentClass = [] }) {
         </>
     );
 }
-
-export default Start;

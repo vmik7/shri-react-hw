@@ -6,13 +6,21 @@ import Button from '../generic/Button';
 
 import './style.scss';
 
-function NewBuild({
+export interface NewBuildProps {
+    onWrapperClick(): void;
+    onSave(): void;
+    onCancel(): void;
+    onInputChange(value: string): void;
+    inputValue: string;
+}
+
+export default function NewBuild({
     onWrapperClick,
     onSave,
     onCancel,
     onInputChange,
     inputValue = '',
-}) {
+}: NewBuildProps) {
     return (
         <Modal
             classList={['new-build']}
@@ -47,5 +55,3 @@ function NewBuild({
         />
     );
 }
-
-export default NewBuild;
