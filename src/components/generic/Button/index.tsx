@@ -2,11 +2,15 @@ import React from 'react';
 
 import './style.scss';
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+    extends React.DetailedHTMLProps<
+        React.ButtonHTMLAttributes<HTMLButtonElement>,
+        HTMLButtonElement
+    > {
     text: string;
     hasIcon?: boolean;
     iconOnly?: boolean;
-    svg?: React.ReactSVGElement;
+    svg?: React.ReactElement;
     isPrimary?: boolean;
     isSmall?: boolean;
     isDisabled?: boolean;
