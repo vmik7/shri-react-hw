@@ -2,18 +2,31 @@ import React from 'react';
 
 import './style.scss';
 
-function Button({
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+    text: string,
+    hasIcon?: boolean,
+    iconOnly?: boolean,
+    svg?: React.ReactSVGElement,
+    isPrimary?: boolean,
+    isSmall?: boolean,
+    isDisabled?: boolean,
+    classList?: Array<string>,
+    onClick?: (e: React.MouseEvent) => void,
+}
+
+export default function Button({
     text = 'Click me!',
     hasIcon = false,
     iconOnly = false,
-    svg = '',
+    svg,
     isPrimary = false,
     isSmall = false,
     isDisabled = false,
     classList = [],
     onClick,
     ...props
-}) {
+} : ButtonProps) {
+
     let classArray = ['button', ...classList];
     if (isPrimary) {
         classArray.push('button_primary');
@@ -40,5 +53,3 @@ function Button({
         </button>
     );
 }
-
-export default Button;
