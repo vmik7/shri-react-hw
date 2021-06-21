@@ -24,7 +24,8 @@
     "eject": "react-scripts eject",
     "prettify": "prettier src --write",
     "lint": "npx eslint src",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -51,11 +52,6 @@
       "git add"
     ],
     "*.{js,css,md}": "prettier --write"
-  },
-  "husky": {
-    "hooks": {
-        "pre-commit": "lint-staged"
-    }
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.3.0",
