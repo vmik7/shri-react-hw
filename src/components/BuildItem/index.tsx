@@ -6,7 +6,27 @@ import iconSuccess from './icons/success.svg';
 import iconPending from './icons/pending.svg';
 import iconFail from './icons/fail.svg';
 
-function BuildItem({
+export type BuildStatus =
+    | 'Success'
+    | 'Waiting'
+    | 'InProgress'
+    | 'Fail'
+    | 'Canceled';
+export interface BuildItemProps {
+    buildNumber: number;
+    commitMessage: string;
+    commitHash: string;
+    branchName: string;
+    authorName: string;
+    status: BuildStatus;
+    start?: string;
+    duration?: number;
+    classList?: Array<string>;
+    isDetailed?: boolean;
+    onClick?(e: React.MouseEvent): void;
+}
+
+export default function BuildItem({
     buildNumber,
     commitMessage,
     commitHash,
@@ -17,8 +37,8 @@ function BuildItem({
     duration,
     classList = [],
     isDetailed = false,
-    onClick,
-}) {
+    onClick = () => {},
+}: BuildItemProps) {
     const monthNames = [
         'янв',
         'фев',
@@ -34,16 +54,16 @@ function BuildItem({
         'дек',
     ];
 
-    function getTimeString(start) {
+    function getTimeString(start: string) {
         const startDate = new Date(start);
 
-        let hours = startDate.getHours();
-        if (hours < 10) {
+        let hours: string = startDate.getHours().toString();
+        if (+hours < 10) {
             hours = '0' + hours;
         }
 
-        let minutes = startDate.getMinutes();
-        if (minutes < 10) {
+        let minutes: string = startDate.getMinutes().toString();
+        if (+minutes < 10) {
             minutes = '0' + minutes;
         }
 
@@ -52,7 +72,7 @@ function BuildItem({
         }, ${hours}:${minutes}`;
     }
 
-    function getDurationString(duration) {
+    function getDurationString(duration: number) {
         let durationHours = Math.floor(duration / 60);
         let durationMinutes = duration % 60;
 
@@ -88,7 +108,10 @@ function BuildItem({
     }
 
     return (
-        <article className={[...classArray, ...classList].join(' ')} onClick={onClick}>
+        <article
+            className={[...classArray, ...classList].join(' ')}
+            onClick={onClick}
+        >
             <div className="build-item__icon">
                 <img src={icon} alt="status"></img>
             </div>
@@ -120,5 +143,3 @@ function BuildItem({
         </article>
     );
 }
-
-export default BuildItem;
